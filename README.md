@@ -23,6 +23,8 @@ This project is an example of a Third Person Controller created using Unity. A F
 
 -> **Modular and Extensible Structure:** Easily add new states or customize existing ones.
 
+-> **Character and Animations from Mixamo:** The character model and animations used in this project are sourced from [Mixamo](https://www.mixamo.com).
+
 ## Usage
 **Clone the repository:** 
 
@@ -54,6 +56,5 @@ Pull requests are welcome.
 #License
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
-#Screenshots
-You can add screenshots or videos here. This is a great way to showcase the project.
-
+# GamePlay
+WASD -> Walk // Space -> Jump // Shift -> Run // Right Mouse Click -> Aim
