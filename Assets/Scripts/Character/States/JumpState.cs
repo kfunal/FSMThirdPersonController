@@ -23,6 +23,7 @@ public class JumpState : CharacterState
 
         if (Manager.IsGrounded() && Manager.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= Parameters.JumpGroundCheckThreshold)
         {
+            Manager.OnLand();
             Manager.ChangeState(InputManager.MoveInput.sqrMagnitude == 0 ? Manager.IdleState : Manager.MoveState);
             return;
         }
