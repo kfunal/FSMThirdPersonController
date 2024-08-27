@@ -24,7 +24,7 @@ MonoBehaviour:
   <FallParameterName>k__BackingField: Fall
   <Sensitivity>k__BackingField: 1
   <AimSensitivity>k__BackingField: 0.5
-  <AimingRotateSpeed>k__BackingField: 5
+  <AimingRotateSpeed>k__BackingField: 20
   <AimLayers>k__BackingField:
     serializedVersion: 2
     m_Bits: 192

@@ -57,6 +57,16 @@ public class CharacterManager : StateMachine
 
     #endregion
 
+    #region Audio
+
+    [field: Header("Audio")]
+    [field: SerializeField] public AudioSource MoveAudioSource { get; private set; }
+    [field: SerializeField] public AudioClip FootStepSound { get; private set; }
+    [field: SerializeField] public AudioClip JumpSound { get; private set; }
+    [field: SerializeField] public AudioClip LandSound { get; private set; }
+
+    #endregion
+
     #endregion
 
     public CharacterController CharacterController { get; private set; } = null;
@@ -146,6 +156,43 @@ public class CharacterManager : StateMachine
         groundCheckSpherePosition = new Vector3(transform.position.x, transform.position.y - parameters.GroundedOffset, transform.position.z);
         return Physics.CheckSphere(groundCheckSpherePosition, parameters.GroundedRadius, parameters.GroundLayers, QueryTriggerInteraction.Ignore); // Ignores trigger colliders
     }
+
+    public void OnFootStep(float _targetMoveSpeed)
+    {
+        if (!IsGrounded()) return;
+
+        if (GetMovementState(_targetMoveSpeed) == GetPlayerSpeed())
+            MoveAudioSource.PlayOneShot(FootStepSound);
+    }
+
+    private float GetMovementState(float _speed)
+    {
+        if (_speed < parameters.WalkSpeed)
+            return 0;
+
+        if (_speed < parameters.RunSpeed)
+            return parameters.WalkSpeed;
+
+        return parameters.RunSpeed;
+    }
+
+    private float GetPlayerSpeed()
+    {
+        if (CurrentState == IdleState)
+            return 0;
+
+        if (CurrentState == JumpState)
+            return 0;
+
+        if (inputManager.Run)
+            return parameters.RunSpeed;
+
+        return parameters.WalkSpeed;
+    }
+
+    public void OnJump() => MoveAudioSource.PlayOneShot(JumpSound);
+
+    public void OnLand() => MoveAudioSource.PlayOneShot(LandSound);
 
     private float ClampAngle(float _angle, float _min, float _max)
     {
