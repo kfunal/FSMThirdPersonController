@@ -24,7 +24,11 @@ This project is an example of a Third Person Controller created using Unity. A F
 -> **Modular and Extensible Structure:** Easily add new states or customize existing ones.
 
 ## Usage
-**Clone the repository:**git clone [https://github.com/your-username/project-name](https://github.com/kfunal/FSMThirdPersonController).git
+**Clone the repository:** 
+
+```
+git clone https://github.com/kfunal/FSMThirdPersonController.git
+```
 
 **Install Git LFS:** To handle large files managed by Git LFS, ensure you have Git LFS installed. You can install it using the following command:
 git lfs install
@@ -32,22 +36,24 @@ git lfs install
 **Open with Unity:** Open the project in the Unity Editor.
 
 **Pull Large Files:** After cloning, Git LFS will automatically fetch the large files. If needed, you can manually pull them using:
+
+```
 git lfs pull
+```
 
 **Play:** Press the Play button to run the game.
 
-# Installation
+## Installation
 **Unity Version:** This project was created using Unity version 2022.3.13f1. It may be compatible with other versions, but using the specified version is recommended for the best experience.
-**Required Packages:** Cinemachine, Input Systeö.
 
-##Contributing
+**Required Packages:** Cinemachine, Input System.
+
+# Contributing
 If you want to contribute to the project, please open an issue first.
 Pull requests are welcome.
 #License
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
-#Authors
-Kasım Furkan ÜNAL - Developed the initial version - Your GitHub Profile
 #Screenshots
 You can add screenshots or videos here. This is a great way to showcase the project.
 
