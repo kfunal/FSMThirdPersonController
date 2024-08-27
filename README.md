@@ -17,7 +17,7 @@ This project is an example of a Third Person Controller created using Unity. A F
 
 -> **Object Interaction (Planned):** The character will be able to interact with various objects in the environment.
 
--> **Sound Effects (Planned):** Adding sound effects to enhance the gameplay experience.
+-> **Sound Effects:** Adding sound effects to enhance the gameplay experience.
 
 -> **Modular and Extensible Structure:** Easily add new states or customize existing ones.
 
