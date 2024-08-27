@@ -51,9 +51,13 @@ git lfs pull
 **Required Packages:** Cinemachine, Input System.
 
 # Contributing
+
 If you want to contribute to the project, please open an issue first.
+
 Pull requests are welcome.
-#License
+
+# License
+
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
 # GamePlay
