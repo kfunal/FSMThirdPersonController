@@ -24,13 +24,16 @@ This project is an example of a Third Person Controller created using Unity. A F
 -> **Modular and Extensible Structure:** Easily add new states or customize existing ones.
 
 ## Usage
-**Clone the repository:**
-git clone [https://github.com/your-username/project-name](https://github.com/kfunal/FSMThirdPersonController).git
+**Clone the repository:**git clone [https://github.com/your-username/project-name](https://github.com/kfunal/FSMThirdPersonController).git
+
 **Install Git LFS:** To handle large files managed by Git LFS, ensure you have Git LFS installed. You can install it using the following command:
 git lfs install
+
 **Open with Unity:** Open the project in the Unity Editor.
+
 **Pull Large Files:** After cloning, Git LFS will automatically fetch the large files. If needed, you can manually pull them using:
 git lfs pull
+
 **Play:** Press the Play button to run the game.
 
 # Installation
