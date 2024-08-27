@@ -58,3 +58,5 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 
 # GamePlay
 WASD -> Walk // Space -> Jump // Shift -> Run // Right Mouse Click -> Aim
+
+https://github.com/user-attachments/assets/32501c9b-7951-4a09-ac17-dfb3d314d6aa
