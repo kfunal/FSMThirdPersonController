@@ -1,5 +1,4 @@
-# Project Name
-Third Person Controller with Finite State Machine
+# Third Person Controller with Finite State Machine
 
 # Description
 This project is an example of a Third Person Controller created using Unity. A Finite State Machine (FSM) structure is implemented to manage the transitions between different states of the character, such as running, walking, and jumping. Additionally, there is an aiming feature that allows the character to aim in a certain direction, with the character's movement adjusting dynamically based on the aim direction. Future updates to the project will include shooting mechanics, weapon placement using IK (Inverse Kinematics) for hand positioning, the ability to drop weapons from the character's hands, interacting with objects, and incorporating sound effects.
