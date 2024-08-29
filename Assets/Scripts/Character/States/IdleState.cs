@@ -1,6 +1,6 @@
 public class IdleState : CharacterState
 {
-    public IdleState(CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters) : base(nameof(IdleState), _stateMachine, _inputManager, _parameters) { }
+    public IdleState(CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters, CharacterUI _ui) : base(nameof(IdleState), _stateMachine, _inputManager, _parameters, _ui) { }
 
     public override void StateEnter()
     {
@@ -33,6 +33,7 @@ public class IdleState : CharacterState
     {
         base.UpdatePhysics();
         ShootingTargetPosition();
+        Interaction();
     }
 
     public override void LateUpdate()

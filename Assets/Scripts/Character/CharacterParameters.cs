@@ -64,4 +64,10 @@ public class CharacterParameters : ScriptableObject
     [field: Tooltip("Ground Layer")]
     [field: SerializeField] public LayerMask GroundLayers { get; private set; }
 
+    //Interaction
+    [field: Header("Interaction Distance")]
+    [field: Tooltip("Distance for player to interact objects")]
+    [field: SerializeField] public float InteractionDistance { get; private set; }
+    [field: Tooltip("Interactable Object Layers")]
+    [field: SerializeField] public LayerMask InteractionLayer { get; private set; }
 }

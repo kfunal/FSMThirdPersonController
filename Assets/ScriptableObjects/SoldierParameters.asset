@@ -34,3 +34,11 @@ MonoBehaviour:
   <GroundLayers>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
+  <InteractionDistance>k__BackingField: 6
+  <InteractionLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 256
+  <WeaponDistance>k__BackingField: 5
+  <WeaponLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1024

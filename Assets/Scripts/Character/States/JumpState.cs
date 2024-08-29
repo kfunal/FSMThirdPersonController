@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpState : CharacterState
 {
-    public JumpState(CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters) : base(nameof(JumpState), _stateMachine, _inputManager, _parameters) { }
+    public JumpState(CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters, CharacterUI _ui) : base(nameof(JumpState), _stateMachine, _inputManager, _parameters, _ui) { }
 
     public override void StateEnter()
     {

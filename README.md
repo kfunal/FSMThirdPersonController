@@ -11,11 +11,7 @@ This project is an example of a Third Person Controller created using Unity. A F
 
 -> **Aiming Feature:** Users can make the character aim in a specific direction, with the character rotating accordingly. The movement adjusts dynamically based on the aim direction.
 
--> **Shooting (Planned):** The character will be able to shoot using weapons.
-
--> **Weapon Placement and Dropping (Planned):** Weapons will be placed in the character's hands using IK (Inverse Kinematics) and can be dropped when needed.
-
--> **Object Interaction (Planned):** The character will be able to interact with various objects in the environment.
+-> **Object Interaction:** The character will be able to interact with various objects in the environment.
 
 -> **Sound Effects:** Adding sound effects to enhance the gameplay experience.
 
@@ -46,7 +42,7 @@ git lfs pull
 ## Installation
 **Unity Version:** This project was created using Unity version 2022.3.13f1. It may be compatible with other versions, but using the specified version is recommended for the best experience.
 
-**Required Packages:** Cinemachine, Input System.
+**Required Packages:** Cinemachine, Input System,TextMeshPro.
 
 # Contributing
 

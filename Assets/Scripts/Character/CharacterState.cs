@@ -5,6 +5,7 @@ public class CharacterState : StateBase
     protected PlayerInputManager InputManager;
     protected CharacterManager Manager;
     protected CharacterParameters Parameters;
+    protected CharacterUI ui;
 
     private Vector3 direction;
     private Vector3 moveDirection;
@@ -17,13 +18,25 @@ public class CharacterState : StateBase
     private float rotation;
     private float turnSmoothVelocitY;
 
-    private Ray ray;
+    private Ray targetRay;
+    private Ray interactableRay;
+    private Ray WeaponRay;
 
-    public CharacterState(string _name, CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters) : base(_name, _stateMachine)
+    private RaycastHit shootingTargetHit;
+    private RaycastHit interactHit;
+    private RaycastHit weaponHit;
+
+    private Interactable currentInteractable;
+    private Interactable lastInteractable;
+
+    public CharacterState(string _name, CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters, CharacterUI _ui) : base(_name, _stateMachine)
     {
         InputManager = _inputManager;
         Manager = _stateMachine;
         Parameters = _parameters;
+        lastInteractable = null;
+        currentInteractable = null;
+        ui = _ui;
         ScreenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
     }
 
@@ -67,11 +80,11 @@ public class CharacterState : StateBase
         if (!InputManager.Aim)
             return;
 
-        ray = Manager.MainCamera.ScreenPointToRay(ScreenCenterPoint);
+        targetRay = Manager.MainCamera.ScreenPointToRay(ScreenCenterPoint);
         mouseWorldPosition = Vector3.zero;
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 999f, Parameters.AimLayers))
-            mouseWorldPosition = hit.point;
+        if (Physics.Raycast(targetRay, out shootingTargetHit, 999f, Parameters.AimLayers))
+            mouseWorldPosition = shootingTargetHit.point;
     }
 
     protected void LookAtAim()
@@ -89,5 +102,31 @@ public class CharacterState : StateBase
         worldAimTarget.y = Manager.transform.position.y;
         aimDirection = (worldAimTarget - Manager.transform.position).normalized;
         Manager.transform.forward = Vector3.Lerp(Manager.transform.forward, aimDirection, Time.deltaTime * Parameters.AimingRotateSpeed);
+    }
+
+    protected void Interaction()
+    {
+        interactableRay = Manager.MainCamera.ScreenPointToRay(ScreenCenterPoint);
+        currentInteractable = null;
+
+        if (Physics.Raycast(interactableRay, out interactHit, Parameters.InteractionDistance, Parameters.InteractionLayer))
+        {
+            if (interactHit.collider.TryGetComponent(out currentInteractable))
+            {
+                ui.ShowInteraction(currentInteractable.PromptMessage);
+                lastInteractable = currentInteractable;
+
+                if (InputManager.Interact)
+                    currentInteractable.Interact();
+            }
+
+            return;
+        }
+
+        if (lastInteractable == null) return;
+
+        lastInteractable.EndInteract();
+        ui.HideInteraction();
+        lastInteractable = null;
     }
 }
