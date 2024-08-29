@@ -1,6 +1,6 @@
 public class MoveState : CharacterState
 {
-    public MoveState(CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters) : base(nameof(MoveState), _stateMachine, _inputManager, _parameters) { }
+    public MoveState(CharacterManager _stateMachine, PlayerInputManager _inputManager, CharacterParameters _parameters, CharacterUI _ui) : base(nameof(MoveState), _stateMachine, _inputManager, _parameters, _ui) { }
 
     public override void StateEnter()
     {
@@ -43,6 +43,7 @@ public class MoveState : CharacterState
     {
         base.UpdatePhysics();
         ShootingTargetPosition();
+        Interaction();
     }
 
     public override void LateUpdate()

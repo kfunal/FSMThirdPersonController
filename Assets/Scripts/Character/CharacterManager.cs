@@ -47,6 +47,7 @@ public class CharacterManager : StateMachine
 
     [Header("Script References")]
     [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private CharacterUI ui;
 
     #endregion
 
@@ -64,6 +65,13 @@ public class CharacterManager : StateMachine
     [field: SerializeField] public AudioClip FootStepSound { get; private set; }
     [field: SerializeField] public AudioClip JumpSound { get; private set; }
     [field: SerializeField] public AudioClip LandSound { get; private set; }
+
+    #endregion
+
+    #region Weapon
+
+    [field: Header("Weapon")]
+    [field: SerializeField] public Transform WeaponSlot { get; private set; }
 
     #endregion
 
@@ -102,9 +110,9 @@ public class CharacterManager : StateMachine
 
     private void StateInit()
     {
-        IdleState = new IdleState(this, inputManager, parameters);
-        MoveState = new MoveState(this, inputManager, parameters);
-        JumpState = new JumpState(this, inputManager, parameters);
+        IdleState = new IdleState(this, inputManager, parameters, ui);
+        MoveState = new MoveState(this, inputManager, parameters, ui);
+        JumpState = new JumpState(this, inputManager, parameters, ui);
     }
 
     public override StateBase InitState() => IdleState;
